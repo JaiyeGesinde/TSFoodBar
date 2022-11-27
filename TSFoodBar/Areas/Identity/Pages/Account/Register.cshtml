@@ -1,0 +1,74 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    var roles = (List<IdentityRole>)ViewData["roles"];
+}
+
+<div class="bodydiv">
+    <div class="leftdivSignUp" style=""></div>
+    <div class="rightdiv">
+        <div class="form">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <h2 class="form_h1" style="color: lightgrey">Sign Up.</h2>
+                <div class="form-group">
+                    @* <label asp-for="Input.FirstName"></label>*@
+                    <input asp-for="Input.FirstName" type="name" class="login" id="firstname" placeholder="First Name" required />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div><br />
+
+                <div class="form-group">
+                    @*<label asp-for="Input.LastName"></label>*@
+                    <input asp-for="Input.LastName" type="name" class="login" id="lastname" placeholder="Last Name" required />
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div><br />
+
+                <div class="form-group">
+                    @* <label asp-for="Input.PhoneNumber"></label>*@
+                    <input asp-for="Input.PhoneNumber" class="login" id="telephone" type="tel" placeholder="Phone Number" required />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div><br />
+
+                <div class="form-group">
+                    @*<label asp-for="Input.Email"></label>*@
+                    <input asp-for="Input.Email" class="login" id="email" placeholder="Email" required />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div><br />
+
+                <div class="form-group">
+                    @*<label asp-for="Input.Password"></label> *@
+                    <input asp-for="Input.Password" class="login" id="password" placeholder="Password" required />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div><br />
+
+                <div class="form-group">
+                    @*<label asp-for="Input.ConfirmPassword"></label> *@
+                    <input asp-for="Input.ConfirmPassword" class="login" id="confirmpassword" placeholder="Confirm Password" required />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div><br />
+
+                @*<div class="form-group">
+                    <label asp-for="Input.Name"></label>
+                    <select asp-for="Input.Name" class="form-control" asp-items='new SelectList(roles,"Id","Name")'>
+                    </select>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div><br />*@
+
+                <div class="form-group">
+                    <button type="submit" value="Submit" class="loginbutton" id="btn_id">Submit</button>
+                </div><br />
+                <div>
+                    <p>
+                        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Already have an account? Click here.</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }

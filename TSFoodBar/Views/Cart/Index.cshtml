@@ -1,0 +1,105 @@
+﻿@model Starters
+@*@model IEnumerable<Cart>
+@{
+
+    foreach(var op in Model){
+        <h3>@op</h3>
+    }
+}*@
+
+
+
+<section>
+<div class="container">
+        <br />
+        <br />
+        <br />
+    <div class="heading-cart">
+        <h1 class="h1-cart">
+            <span class="shopper"></span> Your Cart
+        </h1>
+
+        @*<a href="#" class="visibility-cart transition is-open">X</a>*@
+    </div>
+
+    <div class="cart-cart transition-cart is-open">
+
+            <button type="submit" class="loginbutton" style="border-radius: 5px">Update Cart</button><br /><br />
+
+       @* <a href="#" class="btn-cart btn-update-cart">Update cart</a>*@
+
+
+        <div class="table-cart">
+
+            <div class="layout-inline-cart row-cart th-cart">
+                <div class="col-cart col-pro-cart">Items</div>
+                <div class="col-cart col-price align-center-cart ">
+                    Price
+                </div>
+                <div class="col-cart col-qty-cart align-center-cart">QTY</div>              
+                <div class="col-cart">Total</div>
+            </div>
+
+                <div class="layout-inline-cart row-cart">
+
+                    <div class="col-cart col-pro-cart layout-inline-cart">
+                        <p>@Model.Name</p>
+                    </div>
+
+                    <div class="col-cart col-price col-numeric-cart align-center-cart ">
+                        <p>@Model.Price</p>
+                    </div>
+
+                    <div class="col-cart col-qty-cart layout-inline-cart">
+                        <input type="number" min="1" value="1"/>
+                        @*<button class="bttn" onclick="decrement('count1')">-</button>
+                        <h6 id="count1">1</h6>
+                        <button class="bttn" onclick="increment('count1')">+</button>*@
+                    </div>
+                    <div class="col-cart col-total-cart col-numeric-cart">
+                        <p> N1502.95</p>
+                    </div>
+                </div>             
+
+            <div class="tf-cart">
+                <div class="row-cart layout-inline-cart">
+                   @* <div class="col-cart">
+                        <p>VAT</p>
+                    </div>*@
+                      
+                    <div class="col-cart"></div>
+                </div>
+               @* <div class="row-cart layout-inline-cart">
+                    <div class="col-cart">
+                        <p>Grand Total</p>
+                    </div>
+                    <div class="col-cart"></div>
+                </div>*@
+            </div>          
+        </div>
+      
+            <div>
+                <button type="submit" class="loginbutton" onclick="OpenPopup('popup24')" style="border-radius: 5px">Check Out</button>
+            </div>
+            <div class="popup" id="popup24">
+                <section>
+                <p>Payment Section</p>
+                </section>
+                <section>
+                <input @*asp-for="Number"*@ class="login" id="cardnumber" type="tel" placeholder="Card Number" required />
+            @* <label asp-for="Input.Email" class="form-label"></label>*@
+                <span @*asp-validation-for="Input.Number"*@ class="text-danger"></span>
+                </section>
+                <button class="loginbutton" type="button" onclick="ClosePopup('popup24')">
+                    Back
+                </button>
+                </div>
+          
+    </div>
+</div>
+</section>
+
+<script>
+       
+
+</script>

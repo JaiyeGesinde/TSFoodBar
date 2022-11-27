@@ -1,0 +1,370 @@
+﻿@using TSFoodBar.Models.ViewModels
+@model MealsModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Menu";
+}
+<br />
+<br />
+<section>
+    @*Template for starter items*@
+</section>
+<br />
+<section>
+    <div class="container">
+        <h4 style="color: lightgrey; text-align: center; font-weight: bold">
+            STARTERS
+        </h4>
+        <br />
+        <div class="img-grid">
+            @{
+                foreach(var starter in Model.Starters){
+                                 
+
+                            <!-- card 1 -->
+                            <div class="new-card"
+                                 style="background-image: @starter.Image;">
+                                <a href="#starters"
+                                   onclick="OpenPopup('popup+@starter.Name')"
+                                   style="color: lightgrey">
+                                    <div class="new-card-body">
+                                        <h4 class="food-description-header">
+                                            @starter.Name
+                                        </h4>
+                                        <p class="food-description-body">
+                                           @starter.Description
+                                        </p>
+                                        <p class="food-description-body">N @starter.Price</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="popup" id="popup+@starter.Name">
+                                        <div style="padding-right: 20px;">
+                                            <video src="@starter.Video"
+                                                   muted
+                                                   autoplay
+                                                   loop
+                                                   height="300"
+                                                   width="533"
+                                                   controls>
+                                            </video><br>
+                                            <h5>@starter.Name</h5>
+                                            <p>
+                                                @starter.Description.
+                                            </p>
+                                    <button class="loginbutton" type="button" onclick="ClosePopup('popup+@starter.Name')">
+                                                Back
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <div class="ingredient">
+                                                <div>
+                                                    <h6>Main Ingredients:</h6>
+                                                    <p>@starter.MainIngredients</p>
+                                                    <h6>Optional Ingredients:</h6>
+                                                    <form class="menu-option" method="get" asp-controller="Cart" asp-action="Index">
+
+                                        @{
+                                            var optIngr = starter.OptionIngredients.Split(",");
+                                            foreach(var ingr in optIngr){
+                                                <div>
+                                                    <label>@ingr:</label>
+                                                    <select name="@ingr">
+                                                        <option>Yes</option>
+                                                        <option>No</option>
+                                                    </select>
+                                                </div>
+                                            }
+                                        }                                                                                
+                                            </form>
+                                    <div class="menu-btn-wrapper">
+                                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@starter.StarterId" class="loginbutton">Place Order</a>
+                                    </div>                                         
+                                                </div>
+                                            </div>
+                                            <div class="comments">
+                                                <h6 style="padding: 10px">Ratings</h6>
+                                                <div class="rating">
+                                                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                </div>
+                                                <p>4.1 average based on 25 reviews.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                }
+            }
+
+
+          @*Template for Main items*@
+</section>
+<br />
+<br />
+<section>
+    <div class="container">
+        <h4 style="color: lightgrey; text-align: center; font-weight:bold">MAINS</h4>
+        <br />
+        <div class="img-grid">
+
+         @{
+                foreach(var main in Model.Mains){
+
+                            <!-- card 1 -->
+                            <div class="new-card"
+                                 style="background-image: @main.Image">
+                                <a href="#mains"
+                                       onclick="OpenPopup('popup+@main.Name')"
+                                   style="color: lightgrey">
+                                    <div class="new-card-body">
+                                        <h4 class="food-description-header">
+                                            @main.Name
+                                        </h4>
+                                        <p class="food-description-body animate__animated animate__slideInRight">
+                                            @main.Description
+                                        </p>
+                                        <p class="food-description-body">N @main.Price</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="popup" id="popup+@main.Name">
+                                <div style="padding-right: 20px;">
+                                    <video src="@main.Video"
+                                       muted
+                                       autoplay
+                                       loop
+                                       height="300"
+                                       width="533"
+                                       controls>
+                                    </video><br>
+                                    <h5>@main.Name</h5>
+                                    <p>
+                                        @main.Description.
+                                    </p>
+                                    <button class="loginbutton" type="button" onclick="ClosePopup('popup+@main.Name')">
+                                        Back
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="ingredient">
+                                        <div>
+                                            <h6>Main Ingredients:</h6>
+                                            <p>@main.MainIngredients</p>
+                                            <h6>Optional:</h6>
+                                            <ul class="menu-option">
+                                        
+                                                <div>
+                                                    <label>Cheese:</label>
+                                                    <select>
+                                                        <option>Yes</option>
+                                                        <option>No</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label>Pickles:</label>
+                                                    <select>
+                                                        <option>Yes</option>
+                                                        <option>No</option>
+                                                    </select>
+                                                </div>
+                                      
+                                            </ul>
+                                            <div class="menu-btn-wrapper">
+                                                <button class="loginbutton" type="button">Place Order</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comments">
+                                        <h6 style="padding: 10px">Ratings</h6>
+                                        <div class="rating">
+                                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                        </div>
+                                        <p>4.1 average based on 25 reviews.</p>
+                                    </div>
+                                </div>
+                            </div>
+                }
+            }
+
+           @*Template for Dessert items*@
+</section>
+<br />
+<br />
+<section>
+    <div class="container">
+        <h4 style="color: lightgrey; text-align: center; font-weight:bold">DESERTS</h4>
+        <br />
+        <div class="img-grid">
+
+            @{
+                foreach (var dessert in Model.Desserts)
+                {
+
+                            <!-- card 1 -->
+                            <div class="new-card"
+                         style="
+                    background-image: @dessert.Image;">
+                                <a href="#desserts"
+                            onclick="OpenPopup('popup+@dessert.Name')"
+                           style="color: lightgrey">
+                                    <div class="new-card-body">
+                                        <h4 class="food-description-header">
+                                            @dessert.Name
+                                        </h4>
+                                        <p class="food-description-body">
+                                            @dessert.Description
+                                        </p>
+                                        <p class="food-description-body">N @dessert.Price</p>
+                                    </div>
+                                </a>
+                            </div>
+                        <div class="popup" id="popup+@dessert.Name">
+                                <div style="padding-right: 20px;">
+                            <video src="@dessert.Video"
+                                   muted
+                                   autoplay
+                                   loop
+                                   height="300"
+                                   width="533"
+                                   controls>
+                            </video><br>
+
+                            <h6>@dessert.Name</h6>
+                            <p>
+                               @dessert.Description
+                            </p>
+                                <button class="loginbutton" type="button" onclick="ClosePopup('popup+@dessert.Name')">
+                                Back
+                            </button>
+                        </div>
+                        <div>
+                            <div class="ingredient">
+                                <div>
+                                    <h6>Main Ingredients:</h6>
+                                    <p>@dessert.MainIngredients</p>
+                                    <h6>Optional:</h6>
+                                    Not Available for this item.
+
+                                    <div class="menu-btn-wrapper">
+                                        <button class="loginbutton" type="button">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <h6 style="padding: 10px">Ratings</h6>
+                                <div class="rating">
+                                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                </div>
+                                <p>4.1 average based on 25 reviews.</p>
+                            </div>
+                        </div>
+                        </div>
+                }
+            }
+
+       @*Template for Drink items*@
+</section>
+<br />
+<br />
+<section>
+    <div class="container">
+        <h4 style="color: lightgrey; text-align: center; font-weight:bold">DRINKS</h4>
+        <br />
+        <div class="img-grid">
+
+            @{
+                foreach (var drink in Model.Drinks)
+                {
+                        <!-- card 1 -->
+                        <div class="new-card"
+                     style="
+                background-image: @drink.Image;">
+                            <a href="#drinks"
+                           onclick="OpenPopup('popup+@drink.Name')"
+                       style="color: lightgrey">
+                                <div class="new-card-body">
+                                    <h4 class="food-description-header">
+                                        @drink.Name
+                                    </h4>
+
+                                    <p class="food-description-body">
+                                        @drink.Description
+                                    </p>
+                                    <p class="food-description-body">N @drink.Price</p>
+                                </div>
+                            </a>
+                        </div>
+                       <div class="popup" id="popup+@drink.Name">
+                            <div style="padding-right: 20px;">
+                                <video src="@drink.Video"
+                               muted
+                               autoplay
+                               loop
+                               width="533"
+                               height="300"
+                               controls>
+                                </video><br>
+
+                                <h6>@drink.Name</h6>
+                                <p>
+                                    @drink.Description
+                                </p>
+
+                            <button class="loginbutton" type="button" onclick="ClosePopup('popup+@drink.Name')">
+                                    Back
+                                </button>
+                            </div>
+                            <div>
+                                <div class="ingredient">
+                                    <div>
+                                        <h6>Main Ingredients:</h6>
+                                        <p>@drink.MainIngredients</p>
+                                        <h6>Options:</h6>
+                        <div class="crossaint">
+                            <div>
+                                <input type="radio" id="Coca Cola" name="filling" value="Chocolate">
+                                <label for="chocolate">Coca Cola</label><br>
+                            </div>
+                            <div>
+                                <input type="radio" id="Sprite" name="filling" value="Custard">
+                                <label for="custard">Sprite</label><br>
+                            </div>
+                        </div>
+                        <div class="menu-btn-wrapper">
+                            <button class="loginbutton" type="button">Place Order</button>
+                        </div>
+                      </div>
+                    </div>
+                        <div class="comments">
+                            <h6 style="padding: 10px">Ratings</h6>
+                            <div class="rating">
+                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                            </div>
+                            <p>4.1 average based on 25 reviews.</p>
+                        </div>
+                 </div>
+             </div>
+           }
+        }
+
+          
+</section>
+
