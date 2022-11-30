@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TSFoodBar.Models
 {
@@ -26,5 +27,8 @@ namespace TSFoodBar.Models
         public string? MainIngredients { get; set; }
         [Required]
         public string? OptionIngredients { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Starters>? starterList;
     }
 }

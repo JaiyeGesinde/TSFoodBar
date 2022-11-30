@@ -1,0 +1,340 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Starters
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Apex Admin
+    </title>
+    <link rel="shortcut icon" href="/images/logo-mb.png" type="image/png">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<br />
+<br />
+<br />
+<body>
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+            </div>
+            <div class="main-title">
+                dashboard
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Total orders:
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    3
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="box box-hover">
+                        <!-- COUNTER -->
+                        <div class="counter">
+                            <div class="counter-title">
+                                Order total
+                            </div>
+                            <div class="counter-info">
+                                <div class="counter-count">
+                                    N64,500.00
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END COUNTER -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-12">
+                    <!-- ORDERS TABLE -->
+                    <div class="box">
+                        <div class="box-header">
+                            Active orders
+                        </div>
+                        <div class="box-body overflow-scroll">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Customer</th>
+                                        <th>Date</th>                                     
+                                        <th>Payment status</th>
+                                        <th>Total</th>
+                                        <th>Order status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#2345</td>
+                                        <td>
+                                            <div class="order-owner">                                             
+                                                <span>Ayo Balogun</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>                                     
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Paid</span>
+                                            </div>
+                                        </td>
+                                        <td>N12,500.00</td>
+                                        <td>
+                                            <span class="order-status order-ready">
+                                                Ready
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2345</td>
+                                        <td>
+                                            <div class="order-owner">                                              
+                                                <span>John doe</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>                                   
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Paid</span>
+                                            </div>
+                                        </td>
+                                        <td>N3,500.00</td>
+                                        <td>
+                                            <span class="order-status order-delivered">
+                                                Delivered
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2345</td>
+                                        <td>
+                                            <div class="order-owner">
+
+                                                <span>evelyn</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>
+
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Paid</span>
+                                            </div>
+                                        </td>
+                                        <td>N23,000.00</td>
+                                        <td>
+                                            <span class="order-status order-pending">
+                                                Pending
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2345</td>
+                                        <td>
+                                            <div class="order-owner">
+
+                                                <span>John doe</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>
+
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Paid</span>
+                                            </div>
+                                        </td>
+                                        <td>N2,500.00</td>
+                                        <td>
+                                            <span class="order-status order-delivered">
+                                                Delivered
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2345</td>
+                                        <td>
+                                            <div class="order-owner">
+                                                @*  <img src="./images/user-image-3.png" alt="">*@
+                                                <span>Chioma Enekwe</span>
+                                            </div>
+                                        </td>
+                                        <td>2021-05-09</td>
+
+                                        <td>
+                                            <div class="payment-status payment-paid">
+                                                <div class="dot"></div>
+                                                <span>Paid</span>
+                                            </div>
+                                        </td>
+                                        <td>N23,000.00</td>
+                                        <td>
+                                            <span class="order-status order-ready">
+                                                Ready
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END ORDERS TABLE -->
+                    
+                    <div class="col-4 col-md-6 col-sm-12">
+                        <!-- CATEGORY CHART -->
+                        <!-- END CATEGORY CHART -->
+                    </div>
+                    <div class="col-5 col-md-12 col-sm-12">
+                        <!-- CUSTOMERS CHART -->
+                        <div class="box f-height">
+                            <div class="box-header">
+                                menu
+                            </div>
+                            <br />
+                            <div class="box-bodyDash">
+                                <div class="ingredientdash">
+                                    <div>
+                                    <h4>Starters</h4>
+                                    <form asp-action="Create" asp-controller="Dashboard">
+                                        <label>Food Name:</label>
+                                        <input type="text" asp-for="Name"/>
+                                        <label>Description:</label>
+                                        <input type="text-area" asp-for="Description"/>
+                                        <br />
+                                        <label>Price:</label>
+                                        <br />
+                                        <input type="text" asp-for="Price"/>
+                                        <label>Main Ingredients:</label>
+                                        <input type="text" asp-for="MainIngredients"/>
+                                        <label>Optional Ingredients:</label>
+                                        <textarea asp-for="OptionIngredients"></textarea>
+                                        <br />
+                                        <label>Image Url</label>
+                                        <input type="text" asp-for="Image">
+                                            <label>Video Url</label>
+                                            <input type="text" asp-for="Video">
+                                        <br />
+                                        <br />
+                                        <input type="submit" value="submit">
+                                    </form>
+                                    </div>
+                                </div>
+                                <div class="ingredientdash">
+                                    <div>
+                                        <h4>Mains</h4>
+                                        <form action="/action_page.php">
+                                            <label>Food Name:</label>
+                                            <input type="text" />
+                                            <label>Description:</label>
+                                            <input type="text-area" />
+                                            <label>Main Ingredients:</label>
+                                            <input type="text-area" />
+                                            <label>Optional Ingredients:</label>
+                                            <input type="text-area" />
+                                            <br />
+                                            <br />
+                                            <input type="file" id="myFile" name="filename">
+                                            <br />
+                                            <br />
+                                            <input type="submit">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="ingredientdash">
+                                    <div>
+                                        <h4>Desserts</h4>
+                                        <form action="/action_page.php">
+                                            <label>Food Name:</label>
+                                            <input type="text" />
+                                            <label>Description:</label>
+                                            <input type="text-area" />
+                                            <label>Main Ingredients:</label>
+                                            <input type="text-area" />
+                                            <label>Optional Ingredients:</label>
+                                            <input type="text-area" />
+                                            <br />
+                                            <br />
+                                            <input type="file" id="myFile" name="filename">
+                                            <br />
+                                            <br />
+                                            <input type="submit">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="ingredientdash">
+                                    <div>
+                                        <h4>Drinks</h4>
+                                        <form action="/action_page.php">
+                                            <label>Food Name:</label>
+                                            <input type="text" />
+                                            <label>Description:</label>
+                                            <input type="text-area" />
+                                            <label>Main Ingredients:</label>
+                                            <input type="text-area" />
+                                            <label>Optional Ingredients:</label>
+                                            <input type="text-area" />
+                                            <br />
+                                            <br />
+                                            <input type="file" id="myFile" name="filename">
+                                            <br />
+                                            <br />
+                                            <input type="submit">
+                                        </form>
+                                    </div>
+                                </div>
+                            <div class="box-body">
+
+                            </div>
+                            </div>
+                        </div>
+                        <!-- END CUSTOMERS CHART -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- APP JS -->
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>

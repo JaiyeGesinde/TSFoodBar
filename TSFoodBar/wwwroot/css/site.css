@@ -44,6 +44,13 @@ z-index:10;
     position:relative;
 }
 
+.homepagedivAdmin {
+    background-image: url('../img/sebastian-coman-photography-eBmyH7oO5wY-unsplash.jpg');
+    height: 600px;
+    background-size: cover;
+    position: relative;
+}
+
 .homepagediv-overlay {
     position:absolute;
     width:100%;
@@ -66,7 +73,16 @@ z-index:10;
     margin: 0 1px;
     width: 65%;
     justify-content: center;
-    background-image: url(../img/copy-kobby-mendez-idTwDKt2j2o-unsplash.jpg);
+    background-image: url(../img/s);
+    /*background-image: url('../Video/Landing Video.mp4');*/
+}
+
+.leftdivAdLog {
+    background-size: cover;
+    margin: 0 1px;
+    width: 65%;
+    justify-content: center;
+    background-image: url(../img/sara-julie-9Gz5bMWdGYE-unsplash.jpg);
     /*background-image: url('../Video/Landing Video.mp4');*/
 }
 
@@ -76,6 +92,14 @@ z-index:10;
     width: 65%;
     justify-content: center;
     background-image: url(../img/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg);
+}
+
+.leftdivAdmin {
+    background-size: cover;
+    margin: 0 1px;
+    width: 65%;
+    justify-content: center;
+    background-image: url(../img/sara-cervera-0X6sEvSJxas-unsplash.jpg);
 }
 
 .leftdivForgot {
@@ -320,6 +344,32 @@ z-index:10;
     box-sizing: border-box;
 }
 
+.checkout-popup {
+    max-width: 500px;
+    background-color: black;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    position: fixed;
+    /* top: 50%;
+    left: 50%; */
+    top: 0;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    visibility: hidden;
+    z-index: 60;
+    padding: 20px;
+    box-sizing: border-box;
+    display:flex;
+}
+
+.checkout-input{
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #222;
+}
+
 
 .ingredient {
     width: 300px;
@@ -332,6 +382,21 @@ z-index:10;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* margin: 15px; */
+}
+
+.ingredientdash {
+    width: 275px;
+    height: 600px;
+    background-color: whitesmoke;
+    border: 0px solid black;
+    border-radius: 15px;
+    box-shadow: 0.5px 0.5px 3px black;
+    margin-bottom: 20px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
     /* margin: 15px; */
 }
 
@@ -1117,6 +1182,12 @@ a-ds {
 
 .box-body {
     padding: 20px 0;
+}
+
+.box-bodyDash {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .product-list {

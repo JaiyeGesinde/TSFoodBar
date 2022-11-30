@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TSFoodBar.Data;
+using TSFoodBar.Models;
 
 namespace TSFoodBar.Controllers
 {
@@ -12,6 +13,7 @@ namespace TSFoodBar.Controllers
         {
             _context = conext;
         }
+    
 
         // GET: CartController
         public ActionResult Index(int id)
@@ -20,16 +22,30 @@ namespace TSFoodBar.Controllers
             {
                 return NotFound();
             }
+            /* var starterProduct = _context.Starters.Find(id);
+             var mainProduct = _context.Mains.Find(id);
+             if ( mainProduct !=null)
+             {
+                 return View(mainProduct); 
+
+                     };
+             if (starterProduct != null)
+             {
+                 return View(starterProduct);
+             }*/
             var starterProduct = _context.Starters.Find(id);
+            var mainProduct = _context.Mains.Find(id);
+            var dessertProduct = _context.Desserts.Find(id);
+            var drinkProduct = _context.Drinks.Find(id);
             if (starterProduct == null)
             {
                 return NotFound();
             }
             return View(starterProduct);
 
-           /* var obj = new { Avocado, Brandy };
-
-            return View(Avocado);*/
+            /* var obj = new { Avocado, Brandy };
+            re
+             return View(Avocado);*/
         }
 
         // GET: CartController/Details/5

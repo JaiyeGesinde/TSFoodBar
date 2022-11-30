@@ -57,7 +57,7 @@
                         <button class="bttn" onclick="increment('count1')">+</button>*@
                     </div>
                     <div class="col-cart col-total-cart col-numeric-cart">
-                        <p> N1502.95</p>
+                        <p> N2500.00</p>
                     </div>
                 </div>             
 
@@ -81,18 +81,50 @@
             <div>
                 <button type="submit" class="loginbutton" onclick="OpenPopup('popup24')" style="border-radius: 5px">Check Out</button>
             </div>
-            <div class="popup" id="popup24">
-                <section>
-                <p>Payment Section</p>
-                </section>
-                <section>
-                <input @*asp-for="Number"*@ class="login" id="cardnumber" type="tel" placeholder="Card Number" required />
-            @* <label asp-for="Input.Email" class="form-label"></label>*@
-                <span @*asp-validation-for="Input.Number"*@ class="text-danger"></span>
-                </section>
-                <button class="loginbutton" type="button" onclick="ClosePopup('popup24')">
-                    Back
-                </button>
+            <div class="checkout-popup align-items-center" id="popup24">
+                <div>
+                    <div class="text-center">
+                        <h3>Payment Section</h3>
+                    </div>
+                    <form>
+                        <div class='row row-cols-2 align-items-center'>
+                            <div class='col'>
+                                <label>Debit Card Number</label>
+                                <input class="checkout-input" type="text" />
+                            </div>
+
+                            <div class="col">
+                                <label>Expiration Date</label>
+                                <input class="checkout-input" type="text" />
+                            </div>
+                            <div class="col mt-2">
+                                <label>CVV</label>
+                                <input class="checkout-input" type="text" />
+                            </div>
+                            <div class="col mt-2">
+                                <label>Card Pin</label>
+                                <input class="checkout-input" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="loginbutton mt-3 me-3" type="button" onclick="ClosePopup('popup24')">
+                                Back
+                            </button>
+                            <button class="loginbutton mt-3" type="button" onclick="ClosePopup('popup24')">
+                                Make Payment
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+                
+                @*<section>
+                <input asp-for="Number" class="login" id="cardnumber" type="tel" placeholder="Card Number" required />
+                  <label asp-for="Input.Email" class="form-label"></label>
+                <span asp-validation-for="Input.Number" class="text-danger"></span>
+                </section>*@
+                
                 </div>
           
     </div>

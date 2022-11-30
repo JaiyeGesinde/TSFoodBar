@@ -1,36 +1,62 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TSFoodBar.Data;
+using TSFoodBar.Models;
 
 namespace TSFoodBar.Controllers
 {
+    [Authorize(Policy = "Adminpages")]
+
     public class DashboardController : Controller
     {
+        private readonly ApplicationDbContext _db;
+
+        public DashboardController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         // GET: DashboardController
-        public ActionResult Index()
+       /* public ActionResult Index()
         {
             return View();
-        }
+        }*/
 
         // GET: DashboardController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var starterList = _db?.Starters?.ToList();
+
+            return View(starterList);
         }
 
         // GET: DashboardController/Create
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult Create(int? id)
         {
+            var starterList = _db?.Starters?.ToList();
+            
             return View();
         }
 
         // POST: DashboardController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Starters starterModel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                /*return RedirectToAction(nameof(Index));*/
+                if (ModelState.IsValid)
+                {
+                    _db?.Starters?.Add(starterModel);
+
+                    _db?.SaveChanges();
+
+                    return View(starterModel);
+                }
+
+                return View(starterModel);
             }
             catch
             {
@@ -60,24 +86,37 @@ namespace TSFoodBar.Controllers
         }
 
         // GET: DashboardController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DashboardController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(string id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            var starterId = int.Parse(id);
+
+            var item = _db?.Starters?.Find(starterId);
+
+            _db?.Starters?.Remove(item!);
+
+            _db?.SaveChanges();
+
+            var updatedList = _db?.Starters?.ToList();
+
+            return View("Details", updatedList);
         }
+
+        //// POST: DashboardController/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

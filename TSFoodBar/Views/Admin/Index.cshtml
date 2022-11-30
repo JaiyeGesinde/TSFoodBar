@@ -1,0 +1,50 @@
+﻿@*
+@{
+    ViewData["Title"] = "Admin Log in";
+}
+
+<div class="bodydiv">
+    <div class="leftdiv">
+    </div>
+    <div class="rightdiv">
+        <div class="form">
+            <form id="account" method="post">
+                <p style="margin-top: 100px"><h4 style="color: lightgrey;">Login to place your order</h4></p>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="Input.Email" class="login" id="email" type="email" placeholder="Email" required />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="login" id="password" type="password" placeholder="Password" required />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div><br />
+                <div>
+                    <div class="checkbox text-white">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="loginbutton" id="btn_id" style="border-radius: 5px">Login</button>
+                </div>
+                <div>
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+*@

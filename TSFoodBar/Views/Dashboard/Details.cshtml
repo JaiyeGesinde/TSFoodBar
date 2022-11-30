@@ -1,0 +1,104 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Starters>
+<!-- Menu Table-->
+<div class="box">
+    <div class="box-header">
+       
+    </div>
+    <div class="box-body overflow-scroll">
+        <table>
+            <thead>
+
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Main Ingredients</th>
+                    <th>Optional Ingredients</th>
+                    <th>Image</th>
+                    <th>Video Url</th>
+                    <th></th>
+                </tr>
+
+
+            </thead>
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    <tr>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <span>@s.Name</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <span>@s.Description</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <span>@s.Price</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <span>@s.MainIngredients</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <span>@s.OptionIngredients</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="new-card"
+                                 style="background-image: @s.Image;">
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="payment-status payment-paid">
+                                <div class=""></div>
+                                <video src="@s.Video"
+                                   muted
+                                   autoplay
+                                   loop
+                                   height="350"
+                                   width="265"
+                                   controls>
+                                </video>
+                            </div>
+                        </td>
+
+                        <td>
+                            <form method="post" asp-action="Delete" asp-controller="Dashboard" asp-route-id="@s.StarterId">
+                                <input name="Id" value="@s.StarterId" hidden />
+                                <input type="submit" class="btn btn-danger" value="Delete" />
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

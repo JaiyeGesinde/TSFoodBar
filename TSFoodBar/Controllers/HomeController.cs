@@ -17,6 +17,10 @@ namespace TSFoodBar.Controllers
         {
             return View();
         }
+        public IActionResult IndexAdmin()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

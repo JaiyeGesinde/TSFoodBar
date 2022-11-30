@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TSFoodBar.Data;
 using TSFoodBar.Models.ViewModels;
 
 namespace TSFoodBar.Controllers
 {
+    [Authorize(Policy = "Customerpages")]
+
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;

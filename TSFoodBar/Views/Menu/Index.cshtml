@@ -80,7 +80,7 @@
                                         }                                                                                
                                             </form>
                                     <div class="menu-btn-wrapper">
-                                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@starter.StarterId" class="loginbutton">Place Order</a>
+                                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@starter.StarterId" class="loginbutton" style="text-decoration:none; color:white">Place Order</a>
                                     </div>                                         
                                                 </div>
                                             </div>
@@ -176,7 +176,7 @@
                                       
                                             </ul>
                                             <div class="menu-btn-wrapper">
-                                                <button class="loginbutton" type="button">Place Order</button>
+                                                <a asp-controller="Cart" asp-action="Index" asp-route-id="@main.MainId" class="loginbutton" style="text-decoration:none; color:white">Place Order</a>
                                             </div>
                                         </div>
                                     </div>
@@ -256,7 +256,7 @@
                                     Not Available for this item.
 
                                     <div class="menu-btn-wrapper">
-                                        <button class="loginbutton" type="button">Place Order</button>
+                                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@dessert.DessertId" class="loginbutton" style="text-decoration:none; color:white">Place Order</a>
                                     </div>
                                 </div>
                             </div>
@@ -345,7 +345,7 @@
                             </div>
                         </div>
                         <div class="menu-btn-wrapper">
-                            <button class="loginbutton" type="button">Place Order</button>
+                                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@drink.DrinkId" class="loginbutton" style="text-decoration:none; color:white">Place Order</a>
                         </div>
                       </div>
                     </div>

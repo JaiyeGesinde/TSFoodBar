@@ -18,8 +18,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("readpolicy", builder => builder.RequireRole("Admin", "Manager", "Customer"));
-    options.AddPolicy("writepolicy", builder => builder.RequireRole("Admin", "Manager"));
+    options.AddPolicy("Customerpages", builder => builder.RequireRole("Customer"));
+    options.AddPolicy("Adminpages", builder => builder.RequireRole("Admin"));
 });
 builder.Services.AddControllersWithViews();
 
