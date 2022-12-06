@@ -254,7 +254,29 @@
                                 <div class="ingredientdash">
                                     <div>
                                         <h4>Mains</h4>
-                                        <form action="/action_page.php">
+                                        <form asp-action="Create" asp-controller="Dashboard">
+                                            <label>Food Name:</label>
+                                            <input type="text" asp-for="Name" />
+                                            <label>Description:</label>
+                                            <input type="text-area" asp-for="Description" />
+                                            <br />
+                                            <label>Price:</label>
+                                            <br />
+                                            <input type="text" asp-for="Price" />
+                                            <label>Main Ingredients:</label>
+                                            <input type="text" asp-for="MainIngredients" />
+                                            <label>Optional Ingredients:</label>
+                                            <textarea asp-for="OptionIngredients"></textarea>
+                                            <br />
+                                            <label>Image Url</label>
+                                            <input type="text" asp-for="Image">
+                                            <label>Video Url</label>
+                                            <input type="text" asp-for="Video">
+                                            <br />
+                                            <br />
+                                            <input type="submit" value="submit">
+                                        </form>
+                                       @* <form action="/action_page.php">
                                             <label>Food Name:</label>
                                             <input type="text" />
                                             <label>Description:</label>
@@ -269,13 +291,35 @@
                                             <br />
                                             <br />
                                             <input type="submit">
-                                        </form>
+                                        </form>*@
                                     </div>
                                 </div>
                                 <div class="ingredientdash">
                                     <div>
                                         <h4>Desserts</h4>
-                                        <form action="/action_page.php">
+                                        <form asp-action="Create" asp-controller="Dashboard">
+                                            <label>Food Name:</label>
+                                            <input type="text" asp-for="Name" />
+                                            <label>Description:</label>
+                                            <input type="text-area" asp-for="Description" />
+                                            <br />
+                                            <label>Price:</label>
+                                            <br />
+                                            <input type="text" asp-for="Price" />
+                                            <label>Main Ingredients:</label>
+                                            <input type="text" asp-for="MainIngredients" />
+                                            <label>Optional Ingredients:</label>
+                                            <textarea asp-for="OptionIngredients"></textarea>
+                                            <br />
+                                            <label>Image Url</label>
+                                            <input type="text" asp-for="Image">
+                                            <label>Video Url</label>
+                                            <input type="text" asp-for="Video">
+                                            <br />
+                                            <br />
+                                            <input type="submit" value="submit">
+                                        </form>
+                                       @* <form action="/action_page.php">
                                             <label>Food Name:</label>
                                             <input type="text" />
                                             <label>Description:</label>
@@ -290,13 +334,35 @@
                                             <br />
                                             <br />
                                             <input type="submit">
-                                        </form>
+                                        </form>*@
                                     </div>
                                 </div>
                                 <div class="ingredientdash">
                                     <div>
                                         <h4>Drinks</h4>
-                                        <form action="/action_page.php">
+                                         <form asp-action="Create" asp-controller="Dashboard">
+                                        <label>Food Name:</label>
+                                        <input type="text" asp-for="Name"/>
+                                        <label>Description:</label>
+                                        <input type="text-area" asp-for="Description"/>
+                                        <br />
+                                        <label>Price:</label>
+                                        <br />
+                                        <input type="text" asp-for="Price"/>
+                                        <label>Main Ingredients:</label>
+                                        <input type="text" asp-for="MainIngredients"/>
+                                        <label>Optional Ingredients:</label>
+                                        <textarea asp-for="OptionIngredients"></textarea>
+                                        <br />
+                                        <label>Image Url</label>
+                                        <input type="text" asp-for="Image">
+                                            <label>Video Url</label>
+                                            <input type="text" asp-for="Video">
+                                        <br />
+                                        <br />
+                                        <input type="submit" value="submit">
+                                    </form>
+                                        @*<form action="/action_page.php">
                                             <label>Food Name:</label>
                                             <input type="text" />
                                             <label>Description:</label>
@@ -311,7 +377,7 @@
                                             <br />
                                             <br />
                                             <input type="submit">
-                                        </form>
+                                        </form>*@
                                     </div>
                                 </div>
                             <div class="box-body">

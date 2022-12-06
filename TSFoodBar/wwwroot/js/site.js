@@ -17,11 +17,14 @@ function getFormData(selector) {
     console.log(data);
 }
 
-function addSumit(formSelector) {
+
+/*function addSumit(formSelector) {
     document.querySelector(formSelector).addEventListener("submit", onSubmit);
 }
 
 addSumit("#foodForm");
+*/
+
 
 function onSubmit(e) {
     console.log("handle submit");
@@ -29,20 +32,19 @@ function onSubmit(e) {
     getFormData("#foodForm");
 }
 
-/*MENU*/
-var data = 1;
 
-//printing default value of data that is 0 in h2 tag
-document.getElementById(id).innerText = data;
+/*CART*/
+//Update Total
 
-//increment function
-function increment(id) {
-    data = data + 1;
-    document.getElementById(id).innerText = data;
-}
-//decrement function
-function decrement(id) {
-    data = data - 1;
-    document.getElementById(id).innerText = data;
-}
+let price = document.getElementById('price').innerText;
+
+let quantityDom = document.getElementById('quantity');
+
+let total = 0;
+
+
+quantityDom.addEventListener('change', () => {
+    document.getElementById('total').innerText = Number(price) * Number(document.getElementById('quantity').value)
+})
+
 

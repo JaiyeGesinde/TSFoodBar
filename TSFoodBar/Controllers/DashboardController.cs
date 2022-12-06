@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TSFoodBar.Data;
 using TSFoodBar.Models;
+using TSFoodBar.Models.ViewModels;
 
 namespace TSFoodBar.Controllers
 {
@@ -34,8 +35,11 @@ namespace TSFoodBar.Controllers
         [HttpGet]
         public ActionResult Create(int? id)
         {
-            var starterList = _db?.Starters?.ToList();
-            
+            //var starterList = _db?.Starters?.ToList();
+           /* ViewData.Model = new Starters();
+            ViewData.Model = new Mains();
+            ViewData.Model = new Desserts();
+            ViewData.Model = new Drinks();*/
             return View();
         }
 

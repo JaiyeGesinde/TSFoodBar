@@ -5,6 +5,7 @@
 }
 
 @model IEnumerable<Starters>
+@*@model IEnumerable<Mains>*@
 <!-- Menu Table-->
 <div class="box">
     <div class="box-header">
@@ -21,7 +22,7 @@
                     <th>Main Ingredients</th>
                     <th>Optional Ingredients</th>
                     <th>Image</th>
-                    <th>Video Url</th>
+                    <th>Video</th>
                     <th></th>
                 </tr>
 
@@ -69,14 +70,14 @@
 
                         <td>
                             <div class="new-card"
-                                 style="background-image: @s.Image;">
+                                 style="background-image: url('../img/@s.Image')">
                             </div>
                         </td>
 
                         <td>
                             <div class="payment-status payment-paid">
                                 <div class=""></div>
-                                <video src="@s.Video"
+                                <video src="~/Video/@s.Video"
                                    muted
                                    autoplay
                                    loop
@@ -95,7 +96,6 @@
                         </td>
                     </tr>
                 }
-
 
             </tbody>
         </table>
